@@ -2,8 +2,8 @@
 //  main.cpp
 //  BPNeuralNetwork
 //
-//  Created by Holden WU on 4/8/15.
-//  Copyright (c) 2015 Holden WU. All rights reserved.
+//  Created by Holden Wu on 4/8/15.
+//  MIT LICENCE 
 //
 
 #include <iostream>
@@ -62,7 +62,19 @@ int main(int argc, const char * argv[]) {
             exit(1);
         }
         
-        cout<<"Success!"<<count;
+        cout<<"Successfully read data from file!"<<count<<" piece(s) train data!"<<endl;
+        
+        
+        
+        vector<double> classifyData;
+        double a=1.119,b=-1.388;
+        classifyData.push_back(a);
+        classifyData.push_back(b);
+        double outputResult[OUTPUTNODE];
+        BPNeuralNetwork network;
+        network.train(TrainData,TrainResult);
+        
+        network.classify(classifyData, outputResult);
     }
     
     return 0;

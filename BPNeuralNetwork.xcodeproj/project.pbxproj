@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		60A032631AD4D3B200C3DD74 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A032621AD4D3B200C3DD74 /* main.cpp */; };
+		60A0326D1AD4F53E00C3DD74 /* BPNeuralNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60A0326A1AD4D72F00C3DD74 /* BPNeuralNetwork.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -122,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60A0326D1AD4F53E00C3DD74 /* BPNeuralNetwork.cpp in Sources */,
 				60A032631AD4D3B200C3DD74 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
