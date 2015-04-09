@@ -15,7 +15,7 @@ void random_Init(double array[],int n){
 }
 
 double sigmoid(double input){
-    return 1.0/(1.0+exp(-input/COUST_P));
+    return 1.0/(1.0+exp(-input/COUST_P))+1;
 }
 
 BPNeuralNetwork::BPNeuralNetwork()
@@ -47,7 +47,7 @@ double* BPNeuralNetwork::classify(vector<double> ClassifyData,double OutputLayer
         for (int j=0; j<HIDENODE; j++) {
             sum+=HideNodeOutput[j]*weight_Hide_Output[HIDENODE][OUTPUTNODE];
         }
-        OutputLayerOutput[i]=sigmoid(sum)+1;
+        OutputLayerOutput[i]=sigmoid(sum);
     }
     
     for (int i=0; i<OUTPUTNODE; i++) {
@@ -62,8 +62,8 @@ void BPNeuralNetwork::train(vector<vector<double>> TrainData,vector<vector<doubl
     double BPErr_output[OUTPUTNODE];
     double BPErr_hide[HIDENODE];
     for (int i=0; i<TrainData.size(); i++) {
-        //do front propagation
         
+        //do front propagation
         double HideNodeOutput[HIDENODE];
         for (int j=0; j<HIDENODE; j++) {
             double sum=0;
@@ -81,6 +81,13 @@ void BPNeuralNetwork::train(vector<vector<double>> TrainData,vector<vector<doubl
             }
             outputResult[j]=sigmoid(sum);
         }
+        
+        //calculate the err before refreshing
+        double error=0;
+        for (int j=0; j<OUTPUTNODE; j++) {
+            error+=pow((TrainResult[i][j]-outputResult[j]),2);
+        }
+        cout<<"err:"<<error<<endl;
         
         for (int j=0 ; j<OUTPUTNODE ; j++) {
             BPErr_output[j]=(TrainResult[i][j]-outputResult[j])*outputResult[j]*(1-outputResult[j]);  //find the err
@@ -114,12 +121,5 @@ void BPNeuralNetwork::train(vector<vector<double>> TrainData,vector<vector<doubl
         for (int j=0; j<HIDENODE; j++) {
             threshold_Hide[j]+=LEARNING_RATE_NODE_HIDDEN*BPErr_hide[j];
         }
-        
-        //calculate the err before refreshing
-        double error=0;
-        for (int j=0; j<OUTPUTNODE; j++) {
-            error+=pow((TrainResult[i][j]-outputResult[j]),2);
-        }
-        cout<<"err:"<<error<<endl;
     }
 }

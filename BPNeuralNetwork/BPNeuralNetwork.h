@@ -10,10 +10,10 @@
 #define BPNeuralNetwork_BPNeuralNetwork_h
 
 #define INPUTNODE 2
-#define HIDENODE  5
+#define HIDENODE  3
 #define OUTPUTNODE 1
 
-#define COUST_P 0.5
+#define COUST_P 2
 
 #define LEARNING_RATE_WEIGHT_INPUT_HIDDEN 0.9
 #define LEARNING_RATE_WEIGHT_HIDEEN_OUTPUT 0.9

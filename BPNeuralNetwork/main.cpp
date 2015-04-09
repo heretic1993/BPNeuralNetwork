@@ -49,13 +49,13 @@ int main(int argc, const char * argv[]) {
             count++;
         }
         
-        for(int i=0;i<TrainData.size();i++){
-            cout<<"(";
-            for (int b=0; b<TrainData[i].size(); b++) {
-                cout<<TrainData[i][b]<<",";
-            }
-            cout<<")"<<endl;
-        }
+//        for(int i=0;i<TrainData.size();i++){
+//            cout<<"(";
+//            for (int b=0; b<TrainData[i].size(); b++) {
+//                cout<<TrainData[i][b]<<",";
+//            }
+//            cout<<")"<<endl;
+//        }
         
         if(TrainData.size()!=TrainResult.size()){
             cout<<"Data Error!"<<endl;
@@ -63,7 +63,6 @@ int main(int argc, const char * argv[]) {
         }
         
         cout<<"Successfully read data from file!"<<count<<" piece(s) train data!"<<endl;
-        
         
         
         vector<double> classifyData;
