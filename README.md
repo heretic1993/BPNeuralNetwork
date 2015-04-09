@@ -1,4 +1,4 @@
 # BPNeuralNetwork
-A simple Back Propagation Neural Network (BPNN) to classify 2-Dimension data.
+A simple Back Propagation Neural Network (BPNN) to classify Multi-Dimension data.
 
 License MIT
